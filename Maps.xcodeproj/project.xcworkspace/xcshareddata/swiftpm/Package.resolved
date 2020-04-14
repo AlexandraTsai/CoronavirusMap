@@ -9,6 +9,15 @@
           "revision": "11928850d7273a8cd41bb766f2fc93b4d724b79b",
           "version": "5.0.4"
         }
+      },
+      {
+        "package": "Kanna",
+        "repositoryURL": "https://github.com/tid-kijyun/Kanna",
+        "state": {
+          "branch": null,
+          "revision": "609367a2cd84827a33383cf7923cb4fe8f69ee0a",
+          "version": "5.2.2"
+        }
       }
     ]
   },

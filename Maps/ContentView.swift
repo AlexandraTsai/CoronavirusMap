@@ -53,10 +53,13 @@ class ALHttp {
        let url = "https://www.nbcnews.com/health/health-news/coronavirus-map-confirmed-cases-2020-n1120686"
         ALRequestWCookie(url).responseString { [weak self](response) in
             switch response.result {
-            case .success:
+            case .success(let value):
+                
                 print("====== success ======")
-            case .failure:
+                print(value)
+            case .failure(let error):
                 print("====== failure ======")
+                print(error)
             }
         }
     }
@@ -74,4 +77,6 @@ class ALHttp {
                           encoding: URLEncoding.default,
                           headers: HTTPHeaders(dictionaryLiteral: ("Cookie", "over18=1")))
     }
+    
+    
 }
