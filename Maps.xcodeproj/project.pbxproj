@@ -14,7 +14,7 @@
 		A85C5BE924278BD1001F369D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85C5BE824278BD1001F369D /* Preview Assets.xcassets */; };
 		A85C5BEC24278BD1001F369D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85C5BEA24278BD1001F369D /* LaunchScreen.storyboard */; };
 		A85C5BF524278EC4001F369D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A85C5BF424278EC4001F369D /* Alamofire */; };
-		A85C5BF82427A279001F369D /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = A85C5BF72427A279001F369D /* Kanna */; };
+		A85C5C002429109B001F369D /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85C5BFF2429109B001F369D /* ChartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +26,7 @@
 		A85C5BE824278BD1001F369D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A85C5BEB24278BD1001F369D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A85C5BED24278BD1001F369D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85C5BFF2429109B001F369D /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85C5BF82427A279001F369D /* Kanna in Frameworks */,
 				A85C5BF524278EC4001F369D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +60,7 @@
 		A85C5BDE24278BCD001F369D /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				A85C5BFE2429100B001F369D /* ViewModel */,
 				A85C5BDF24278BCD001F369D /* AppDelegate.swift */,
 				A85C5BE124278BCD001F369D /* SceneDelegate.swift */,
 				A85C5BE324278BCD001F369D /* ContentView.swift */,
@@ -77,6 +78,14 @@
 				A85C5BE824278BD1001F369D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A85C5BFE2429100B001F369D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A85C5BFF2429109B001F369D /* ChartViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,7 +106,6 @@
 			name = Maps;
 			packageProductDependencies = (
 				A85C5BF424278EC4001F369D /* Alamofire */,
-				A85C5BF72427A279001F369D /* Kanna */,
 			);
 			productName = Maps;
 			productReference = A85C5BDC24278BCD001F369D /* Maps.app */;
@@ -129,7 +137,6 @@
 			mainGroup = A85C5BD324278BCC001F369D;
 			packageReferences = (
 				A85C5BF324278EC4001F369D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				A85C5BF62427A279001F369D /* XCRemoteSwiftPackageReference "Kanna" */,
 			);
 			productRefGroup = A85C5BDD24278BCD001F369D /* Products */;
 			projectDirPath = "";
@@ -159,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A85C5BE024278BCD001F369D /* AppDelegate.swift in Sources */,
+				A85C5C002429109B001F369D /* ChartViewModel.swift in Sources */,
 				A85C5BE224278BCD001F369D /* SceneDelegate.swift in Sources */,
 				A85C5BE424278BCD001F369D /* ContentView.swift in Sources */,
 			);
@@ -300,6 +308,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Maps/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4WPZJJ6S4;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -320,6 +329,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Maps/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4WPZJJ6S4;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -364,14 +374,6 @@
 				minimumVersion = 5.0.4;
 			};
 		};
-		A85C5BF62427A279001F369D /* XCRemoteSwiftPackageReference "Kanna" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tid-kijyun/Kanna";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -379,11 +381,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A85C5BF324278EC4001F369D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		A85C5BF72427A279001F369D /* Kanna */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A85C5BF62427A279001F369D /* XCRemoteSwiftPackageReference "Kanna" */;
-			productName = Kanna;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
