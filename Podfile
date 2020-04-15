@@ -6,6 +6,6 @@ target 'Maps' do
   use_frameworks!
 
   # Pods for Maps
-  pod 'Kanna', '~> 5.2.2'
+  pod 'Kanna'
   pod 'Alamofire', '~> 5.1'
 end

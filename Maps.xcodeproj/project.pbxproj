@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -159,8 +159,6 @@
 			);
 			mainGroup = A85C5BD324278BCC001F369D;
 			packageReferences = (
-				A85C5BF324278EC4001F369D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				A83EF420244543A1005DC36F /* XCRemoteSwiftPackageReference "Kanna" */,
 			);
 			productRefGroup = A85C5BDD24278BCD001F369D /* Products */;
 			projectDirPath = "";
@@ -375,7 +373,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Maps/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4WPZJJ6S4;
 				ENABLE_PREVIEWS = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,7 +395,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Maps/Preview Content\"";
 				DEVELOPMENT_TEAM = Z4WPZJJ6S4;
 				ENABLE_PREVIEWS = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,25 +430,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A83EF420244543A1005DC36F /* XCRemoteSwiftPackageReference "Kanna" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tid-kijyun/Kanna";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.2;
-			};
-		};
-		A85C5BF324278EC4001F369D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = A85C5BD424278BCC001F369D /* Project object */;
 }

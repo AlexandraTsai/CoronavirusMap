@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Alamofire
+import Kanna
 
 struct ContentView: View {
     
@@ -54,7 +55,18 @@ class ALHttp {
         ALRequestWCookie(url).responseString { [weak self](response) in
             switch response.result {
             case .success(let value):
-                
+                if let doc = try? ALHtmlParser.ALHTML(html: value, encoding: String.Encoding.utf8) {
+                    print(doc)
+//                    let path = #"//*[@id="content"]/div/div[5]/div/div/div/article/div/div[6]/div/div/section/div/div/html/body/*[@id="graphic"]"#
+                    let path = #"//*[@id="content"]/div/div[5]/div/div/div/article/div/div[6]/div/div/section/div/div"#
+                    for url in doc.xpath(path) {
+//                        /html/body
+//                        *[@id="graphic"]
+//                        /html/body/div
+                        ///html/body/div[2]/div/div[6]/div/div/div/article/div/div[7]/div[1]/div[1]/section[1]/div/div/iframe
+                        print("------ url = \(url.content) ------")
+                    }
+                }
                 print("====== success ======")
                 print(value)
             case .failure(let error):
@@ -78,5 +90,22 @@ class ALHttp {
                           headers: HTTPHeaders(dictionaryLiteral: ("Cookie", "over18=1")))
     }
     
+    func covid19CasesTable(_ html: String) {
     
+    }
 }
+
+class ALHtmlParser {
+    
+    static func ALHTML(html: String, encoding: String.Encoding) throws -> HTMLDocument {
+        
+        return try Kanna.HTML(html: html, encoding: encoding)
+    }
+}
+
+//class Provider: NSObject {
+//
+//    static let shared = Provider()
+//
+//    func
+//}
