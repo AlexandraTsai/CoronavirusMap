@@ -37,8 +37,6 @@ struct ContentView: View {
                 .background(Color.red)
             }
         }
-        
-        //*[@id="mapGraphic"]/g
     }
 }
 
@@ -48,29 +46,52 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+struct CaseTable {
+    var country: String?
+    var confirmed: String?
+    var deaths: String?
+}
+
 class ALHttp {
     
     init() {
-       let url = "https://www.nbcnews.com/health/health-news/coronavirus-map-confirmed-cases-2020-n1120686"
-        ALRequestWCookie(url).responseString { [weak self](response) in
+//       let url = "https://www.nbcnews.com/health/health-news/coronavirus-map-confirmed-cases-2020-n1120686"
+        let tableURL = "https://dataviz.nbcnews.com/projects/20200122-coronavirus-world-count/world-table.html?initialWidth=461&amp;childId=embed-20200122-coronavirus-table-count&amp;parentTitle=Coronavirus%20map%3A%20The%20COVID-19%20virus%20is%20spreading%20across%20the%20world.%20Here%27s%20where%20cases%20have%20been%20confirmed.&amp;parentUrl=https%3A%2F%2Fwww.nbcnews.com%2Fhealth%2Fhealth-news%2Fcoronavirus-map-confirmed-cases-2020-n1120686"
+        ALRequestWCookie(tableURL).responseString { [weak self](response) in
             switch response.result {
             case .success(let value):
-                if let doc = try? ALHtmlParser.ALHTML(html: value, encoding: String.Encoding.utf8) {
-                    print(doc)
-//                    let path = #"//*[@id="content"]/div/div[5]/div/div/div/article/div/div[6]/div/div/section/div/div/html/body/*[@id="graphic"]"#
-                    let path = #"//*[@id="content"]/div/div[5]/div/div/div/article/div/div[6]/div/div/section/div/div"#
-                    for url in doc.xpath(path) {
-//                        /html/body
-//                        *[@id="graphic"]
-//                        /html/body/div
-                        ///html/body/div[2]/div/div[6]/div/div/div/article/div/div[7]/div[1]/div[1]/section[1]/div/div/iframe
-                        print("------ url = \(url.content) ------")
+                if let doc = try? Kanna.HTML(html: value, encoding: String.Encoding.utf8) {
+//                if let doc = try? ALHtmlParser.ALHTML(html: value, encoding: String.Encoding.utf8) {
+                    let pathHead = #"//*[@id="graphic"]/div/table/thead"#
+//                    for url in doc.xpath(pathHead) {
+//                        print("------ url = \(url.content) ------")
+//                    }
+//
+//                    for (index, td) in doc.css("td").enumerated() {
+//                        print(td.text as! String)
+//                    }
+                    
+//                    let pathBody = "//table[@class=\"table\"]//tbody"
+//                    for url in (doc.body?.xpath(pathBody))! {
+//                        print(url.text)
+//                        for url in url.xpath("//tr/td") {
+//                            print(url.content)
+//                        }
+//
+//                    }
+                    
+                    let pathBody = #"//tbody[@id='tbody']"#
+                    for url in doc.xpath(pathBody) {
+                        print(url.xpath("/tr")[0].content)
+                        print(url.xpath("/tr/td[1]")[0].content)
+                        print(url.at_xpath("//tr")?.content)
+
                     }
+                   
+                    
+                    
                 }
-                print("====== success ======")
-                print(value)
             case .failure(let error):
-                print("====== failure ======")
                 print(error)
             }
         }
